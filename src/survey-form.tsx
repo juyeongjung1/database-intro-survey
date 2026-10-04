@@ -29,7 +29,7 @@ export default function SurveyForm() {
       setReceipt(data.receipt); setStatus("success"); window.scrollTo({top:0,behavior:"smooth"});
     } catch (err) {setStatus("error");setMessage(err instanceof Error?err.message:"送信できませんでした。入力内容はそのまま残っています。もう一度お試しください。");}
   }
-  if(status === "success") return <div className="success" role="status"><div className="success-icon">✓</div><span className="eyebrow">THANK YOU</span><h2>ご回答、ありがとうございます。</h2><p>回答を受け付けました。<br/>研修でお会いできるのを楽しみにしています。</p><div className="receipt">受付番号 <strong>{receipt}</strong></div><p className="quiet">この画面を閉じていただいて大丈夫です。</p></div>;
+  if(status === "success") return <div className="success" role="status"><div className="success-icon">✓</div><span className="eyebrow">THANK YOU</span><h2>ご回答、ありがとうございます。</h2><p>回答を受け付けました。<br/>ご回答いただいた内容は、研修の難易度や取り扱う内容を調整するための参考にさせていただきます。</p><div className="receipt">受付番号 <strong>{receipt}</strong></div><p className="quiet">この画面を閉じていただいて大丈夫です。</p></div>;
   return <form onSubmit={submit}>
     <div className="progress-row"><span>{answered} / 9 回答済み</span><span>空欄でも送信できます</span></div><div className="progress-track"><div style={{width:`${answered/9*100}%`}}/></div>
     <div className="question"><label htmlFor="name"><span className="question-number">01</span><span>お名前</span></label><input id="name" name="name" autoComplete="name" maxLength={100} value={values.name} onChange={e=>update("name",e.target.value)} placeholder="お名前をご記入ください"/></div>
